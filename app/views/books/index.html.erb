@@ -1,0 +1,8 @@
+<!-- 投稿一覧 投稿内容が表示されない-->
+
+<h1>投稿一覧</h1>
+<% @books.each do |book| %>
+  <p>タイトル</p>
+  <span><%= book.title %></span>
+  <p>感想<%= book.body %></p>
+<% end %>
