@@ -1,22 +1,32 @@
 <!--Users-->
-<!--左サイドバー同じだからあとで入れる-->
-<div class="user-list">
-<h1>Users</h1>
-<table>
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-   <% @users.each do |user| %>
-    <tr>
-      <td><%= attachment_image_tag user, :profile_image, :fill, 60, 60,fallback: "no_image.jpg" %></td>
-      <td><%= user.name  %></td>
-      <td><!--link_to 'show' で/users/ID　にとばす--><a href="/">show</a></td>
-    </tr>
-   <% end %>
-  </tbody>
-</table>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4" >
+    <!-- サイドバー  -->
+     <%= render 'users/said', user: @user %>
+     <%= render 'books/said', book: @book %>
+    </div>
+    <!-- 投稿一覧  -->
+    <div class="col-lg-8">
+     <h1>Users</h1>
+     <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @users.each do |user| %>
+        <tr>
+          <td><%= attachment_image_tag user, :profile_image, :fill, 60, 60,fallback: "no_image.jpg" %></td>
+          <td><%= user.name  %></td>
+          <td><!--link_to 'show' で/users/ID　にとばす--><a href="/">show</a></td>
+        </tr>
+       <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

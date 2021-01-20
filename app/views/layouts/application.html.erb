@@ -4,31 +4,37 @@
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/259ce38388.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
 
-  <header>
-    <%= link_to "Bookers", "/" %>
-    <% if user_signed_in? %>
-      <%= link_to "Home", user_path(current_user.id) %>
-      <%= link_to "Users", "/users"  %>
-      <%= link_to "Books", "/books"  %>
-      <%= link_to "logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Home", "/" %>
-      <%= link_to "About",  "/home/about" %>
-      <%= link_to "sign up", new_user_registration_path %>
-      <%= link_to "login",new_user_session_path %>
-    <% end %>
-  </header>
   <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Bookers</a>
+        </div>
+    <ul class="nav navbar-nav navbar-right"><!-- いくらやっても横並びの右寄せにならない -->
+      <% if user_signed_in? %>
+      <li class="list-inline-item"><%= link_to "Home", user_path(current_user.id) %></li>
+      <li class="list-inline-item"><%= link_to "Users", "/users" %></li>
+      <li class="list-inline-item"><%= link_to "Books", "/books"  %></li>
+      <li class="list-inline-item"><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li class="list-inline-item"><%= link_to "Home", "/" %></li>
+      <li class="list-inline-item"><%= link_to "About",  "/home/about" %></li>
+      <li class="list-inline-item"><%= link_to "sign up", new_user_registration_path %></li>
+      <li class="list-inline-item"><%= link_to "login",new_user_session_path %></li>
+    <% end %>
+    </ul>
+    </div>
+  </nav>
     <%= render 'layouts/flash' %>
     <%= yield %>
   </body>
   <footer>
-    <p>CopyRight Infratop.inc</p>
+    <p class="text-center">CopyRight Infratop.inc</p>
   </footer>
 </html>
