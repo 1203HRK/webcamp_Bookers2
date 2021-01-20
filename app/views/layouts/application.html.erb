@@ -14,8 +14,8 @@
     <%= link_to "Bookers", "/" %>
     <% if user_signed_in? %>
       <%= link_to "Home", user_path(current_user.id) %>
-      <!-- link_to "Users",  -->
-      <!-- link_to "Books",  -->
+      <%= link_to "Users", "/users"  %>
+      <%= link_to "Books", "/books"  %>
       <%= link_to "logout", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "Home", "/" %>
