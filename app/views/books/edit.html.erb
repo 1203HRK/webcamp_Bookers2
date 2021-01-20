@@ -4,6 +4,12 @@
 <div class="edit">
 
 <h1>Editing Book</h1>
+<!-- エラーメッセージ※機能しない -->
+<% if flash[:notice] %>
+    <div class="flash">
+         <%= flash[:notice] %>
+    </div>
+<% end %>
 
 <%= form_with model: @book, local:true do |f| %>
   <h4>Title</h4>

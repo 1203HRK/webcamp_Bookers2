@@ -1,6 +1,13 @@
 <!--プロフ編集画面-->
-
+<!-- エラーメッセージ -->
 <h2>User info</h2>
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>件のエラーが発生しました
+  <% @user.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+<!-- 編集フォーム -->
 <%= form_with model:@user, local:true do |f| %>
   <label for="inputName">Name</label></br>
   <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%></br>
