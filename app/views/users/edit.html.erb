@@ -14,8 +14,9 @@
   <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></br>
   <label for="inputImage">Image</label></br>
   <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></br>
-  <!--自己紹介保存されてない-->
   <label for="inputIntroduction">Introduction</label></br>
   <%= f.text_area :introduction, id:"inputIntroduction", placeholder:"自己紹介文"%></br>
-  <%= f.submit "Update User", class: "btn btn-secondary" %>
+  <% if current_user.id == @user.id %>
+    <div><%= f.submit "Update User", class: "btn btn-secondary" %></div>
+  <% end %>
 <% end %>

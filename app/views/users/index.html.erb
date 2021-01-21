@@ -1,14 +1,15 @@
 <!--Users-->
 
-<div class="container">
+<div class="container-fluid m-4">
   <div class="row">
-    <div class="col-lg-4" >
-    <!-- サイドバー  -->
-     <%= render 'users/said', user: @user %>
-     <%= render 'books/said', book: @book %>
+    <div class="col-4" id="sticky-sidebar">
+      <!-- サイドバー  -->
+      <%= render 'users/said', user: @user %>
+      <%= render 'books/said', book: @book %>
     </div>
+    <div class="my-box col-auto"></div>
     <!-- 投稿一覧  -->
-    <div class="col-lg-8">
+    <div class="col-8">
      <h1>Users</h1>
      <table class="table table-striped">
       <thead>
@@ -21,7 +22,7 @@
       <tbody>
        <% @users.each do |user| %>
         <tr>
-          <td><%= attachment_image_tag user, :profile_image, :fill, 60, 60,fallback: "no_image.jpg" %></td>
+          <td><%= attachment_image_tag user, :profile_image, size:'50x50',fallback: "no_image.jpg" %></td>
           <td><%= user.name  %></td>
           <td><!--link_to 'show' で/users/ID　にとばす--><a href="/">show</a></td>
         </tr>

@@ -1,19 +1,20 @@
 <!--サイドバー user-->
-
-<div class="profile-container">
-<h1>User info</h1>
+<div class="mx-auto" style="width: 90%;">
+<h2>User info</h2>
 <p><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
-<table>
+<table class="table">
   <tr class="profile-name">
     <td>name</td>
-    <td><%= user.name %></td>
+    <td><%= user.name %></td><!--なんでひっかかる？-->
   </tr>
   <tr>
     <td>introduction</td>
-    <td><%= user.introduction %></td>
+    <td><%= user.introduction %></td><!--なんでひっかかる？-->
   </tr>
 </table>
-
-  <% if user.id == current_user.id %>
-    <%= link_to "プロフィール編集", edit_user_path(user), class: "btn btn-outline-secondary" %>
-  <% end %>
+</div>
+<% if user.id == current_user.id %>
+    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary my-4 col-xs-12", style: "width: 100%;" do %>
+      <span class="fas fa-user-cog"></span>
+    <% end %>
+<% end %>
