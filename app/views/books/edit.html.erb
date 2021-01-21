@@ -1,30 +1,32 @@
 <!--books/12364/edit-->
 <!--サイドバーなし-->
-
-<!--エラーメッセージOK-->
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました
-  <% @book.errors.full_messages.each do |message| %>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+   <h1>Editing Book</h1>
+   <!--エラーメッセージ-->
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>error prohibited this obj from being saved:
+    <% @book.errors.full_messages.each do |message| %>
     <%= message %>
+    <% end %>
   <% end %>
-<% end %>
-
-<div class="edit">
-
-<h1>Editing Book</h1>
-
-<%= form_with model: @book, local:true do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Body</h4>
-   <%= f.text_area :body %>
-  <% if current_user.id == @user.id %>
-   <div><%= f.submit 'Update Book' , class: "btn btn-success" %></div>
+   <%= form_with model: @book, local:true do |f| %>
+   <div class="form-group">
+   <p>Title</p>
+   <%= f.text_field :title, style:"width: 100%;" %>
+   </div>
+   <div class="form-group">
+   <p>Body</p>
+    <%= f.text_area :body, style:"width: 100%;" %>
+    </div>
+   <% if current_user.id == @user.id %>
+    <div><%= f.submit 'Update Book' , class: "btn btn-success" %></div>
    <% end %>
-
-  <%= link_to "Show", book_path(@book) %>
-  <a>|</a>
-  <%= link_to 'Back', books_path %>
-<% end %>
-
+   <%= link_to "Show", book_path(@book) %>
+    <a>|</a>
+   <%= link_to 'Back', books_path %>
+   <% end %>
+   </div>
+ </div>
 </div>

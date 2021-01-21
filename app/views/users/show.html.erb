@@ -1,15 +1,20 @@
 <!--Home /users/id URLOK-->
-
-<div class="container-fluid m-4">
+  <!--エラーメッセージOK-->
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>error prohibited this obj from being saved:
+    <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+    <% end %>
+  <% end %>
+<div class="container px-5 px-sm-0 mt-3",>
   <div class="row">
-    <div class="col-3" id="sticky-sidebar">
+    <div class="col-md-3" id="sticky-sidebar">
       <!-- サイドバー  -->
       <%= render 'users/said', user: @user %>
       <%= render 'books/said', book: @book %>
     </div>
-    <div class="my-box col-auto"></div>
     <!--投稿一覧画面-->
-    <div class="col-7" id="main">
+    <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table table table-hover">
         <thead>
@@ -22,7 +27,7 @@
         <tbody>
          <% @books.each do |book| %>
          <tr>
-            <td><%= attachment_image_tag book.user, :profile_image, size:'50x50',fallback: "no_image.jpg" %></td>
+            <td><%= link_to attachment_image_tag(book.user, :profile_image, size:'50x50',fallback: "no_image.jpg"), user_path(@user.id) %></td>
             <td><%= link_to book.title, book_path(book.id)  %></td>
             <td><%= book.body  %></td>
           </tr>

@@ -13,8 +13,6 @@
   </tr>
 </table>
 </div>
-<% if user.id == current_user.id %>
-    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary my-4 col-xs-12", style: "width: 100%;" do %>
+      <%= link_to edit_user_path(user), class: "btn btn-outline-secondary my-4 col-xs-12", style: "width: 100%;" do %>
       <span class="fas fa-user-cog"></span>
-    <% end %>
-<% end %>
+ <% end %>

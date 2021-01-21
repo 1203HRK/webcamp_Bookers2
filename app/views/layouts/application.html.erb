@@ -26,11 +26,12 @@
       <li class="mx-2"><%= link_to "Home", "/", class:"fas fa-home", :style=>"color:white;"  %></li>
       <li class="mx-2"><%= link_to "About",  "/home/about", class:"fas fa-link", :style=>"color:white;"  %></li>
       <li class="mx-2"><%= link_to "sign up", new_user_registration_path, class:"fas fa-user-plus", :style=>"color:white;"  %></li>
-      <li class="mx-2"><%= link_to "log in", new_user_session_path, class:"fas fa-sign-in-alt", :style=>"color:white;"  %></li>
+      <li class="mx-2"><%= link_to "login", new_user_session_path, class:"fas fa-sign-in-alt", :style=>"color:white;"  %></li>
     <% end %>
     </ul>
     </div>
   </nav>
+    <p id="notice"></p>
     <%= render 'layouts/flash' %>
     <%= yield %>
   </body>
