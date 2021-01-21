@@ -1,25 +1,25 @@
-<!--books/12364/edit-->
+<!--books/:id/edit-->
 <!--サイドバーなし-->
 <div class="container">
  <div class="row">
   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
    <h1>Editing Book</h1>
    <!--エラーメッセージ-->
-  <% if @book.errors.any? %>
+   <% if @book.errors.any? %>
     <%= @book.errors.count %>error prohibited this obj from being saved:
     <% @book.errors.full_messages.each do |message| %>
     <%= message %>
-    <% end %>
-  <% end %>
+     <% end %>
+   <% end %>
    <%= form_with model: @book, local:true do |f| %>
    <div class="form-group">
-   <p>Title</p>
-   <%= f.text_field :title, style:"width: 100%;" %>
+    <p>Title</p>
+    <%= f.text_field :title, style:"width: 100%;" %>
    </div>
    <div class="form-group">
-   <p>Body</p>
+    <p>Body</p>
     <%= f.text_area :body, style:"width: 100%;" %>
-    </div>
+   </div>
    <% if current_user.id == @user.id %>
     <div><%= f.submit 'Update Book' , class: "btn btn-success" %></div>
    <% end %>

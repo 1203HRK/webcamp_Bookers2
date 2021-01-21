@@ -1,8 +1,8 @@
 <!--サイドバー user-->
 <div class="mx-auto" style="width: 90%;">
-<h2>User info</h2>
-<p><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
-<table class="table">
+ <h2>User info</h2>
+ <p><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
+ <table class="table">
   <tr class="profile-name">
     <td>name</td>
     <td><%= user.name %></td><!--なんでひっかかる？-->
@@ -13,6 +13,6 @@
   </tr>
 </table>
 </div>
-      <%= link_to edit_user_path(user), class: "btn btn-outline-secondary my-4 col-xs-12", style: "width: 100%;" do %>
-      <span class="fas fa-user-cog"></span>
+ <%= link_to edit_user_path(user), class: "btn btn-outline-secondary my-4 col-xs-12", style: "width: 100%;" do %>
+   <span class="fas fa-user-cog"></span>
  <% end %>
