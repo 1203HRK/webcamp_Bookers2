@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-
-  before_action :correct_user, only: [:update]
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def new
     @book = Book.new
@@ -23,6 +23,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @user = current_user
     @book = Book.new
+    @favorite = Favorite.new
   end
 
   def show
@@ -30,6 +31,8 @@ class BooksController < ApplicationController
     @user = @book.user
     @book_new = Book.new
     @user_a = current_user
+    @favorite = Favorite.new
+    @book_comment = BookComment.new
   end
 
   def edit
