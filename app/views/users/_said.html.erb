@@ -5,14 +5,32 @@
  <table class="table">
   <tr class="profile-name">
     <td>name</td>
-    <td><%= user.name %></td><!--なんでひっかかる？-->
+    <td><%= user.name %></td>
   </tr>
   <tr>
     <td>introduction</td>
-    <td><%= user.introduction %></td><!--なんでひっかかる？-->
+    <td><%= user.introduction %></td>
+  </tr>
+    <tr>
+    <td>follows</td>
+    <td><%= link_to user.follower.count, "follows/:user_id" %></td>
+  </tr>
+    <tr>
+    <td>followers</td>
+    <td><%= link_to user.followed.count, 'followers/:user_id' %></td>
   </tr>
 </table>
 </div>
+
+<% unless @user == current_user %>
+  <% if current_user.following?(@user) %>
+    <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST, type:"button", class:"btn btn-info" %>
+  <% else %>
+    <%= link_to 'フォローする', follow_path(@user.id), method: :POST, type:"button", class:"btn btn-success" %>
+  <% end %>
+<% end %>
+
+
  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary my-4 col-xs-12", style: "width: 100%;" do %>
    <span class="fas fa-user-cog"></span>
  <% end %>
