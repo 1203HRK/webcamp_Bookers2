@@ -24,6 +24,7 @@ class BooksController < ApplicationController
     @user = current_user
     @book = Book.new
     @favorite = Favorite.new
+    @book_comments = BookComment.new
   end
 
   def show

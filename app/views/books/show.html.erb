@@ -26,7 +26,7 @@
               <% end %>
                <%= @favorites_count %>
              </td>
-         <td>コメント数:<%= @book_new.book_comments.count %></td>
+         <td>コメント数:<%= @book.book_comments.count %></td>
          <td><% if current_user.id == @user.id %><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success" %><% end %></td>
          <td><% if current_user.id == @user.id %><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-danger", data: { confirm: '本当に消しますか？' } %><% end %></td>
        </tr>
