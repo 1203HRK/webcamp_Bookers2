@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get 'follows/:user_id' => 'relationships#index'
   get 'followers/:user_id' => 'relationships#show'
 
+  get "/search" => "search#search"
+
 end
