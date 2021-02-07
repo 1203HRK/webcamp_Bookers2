@@ -69,3 +69,4 @@ gem 'pry-byebug'
 
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+gem 'jp_prefecture'
